@@ -44,7 +44,15 @@
 			keyToNext:				'n',		// (string) (n = next) Letter to show the next image.
 			// Don´t alter these variables in any way
 			imageArray:				[],
-			activeImage:			0
+			activeImage:			0,   
+			top: 110,              // How many pixels from the top to push the overlay down. Defaults to amount used in BCH project
+			onOpen: function() {
+				// Default empty function for when the lightbox is opened
+			},                                                           			
+			onClose: function() {
+				// Default empty function for when the lightbox is closed				
+			} 
+			              // How many pixels from the top to push the overlay down. Defaults to amount used in BCH project
 		},settings);
 		// Caching the jQuery object with all elements matched
 		var jQueryMatchedObj = this; // This, in this context, refer to jQuery object
@@ -85,7 +93,9 @@
 				settings.activeImage++;
 			}
 			// Call the function that prepares image exibition
-			_set_image_to_view();
+			_set_image_to_view();  
+			// Call the function specified in the onStart configuration setting
+			settings.onOpen.call();
 		}
 		/**
 		 * Create the jQuery lightBox plugin interface
@@ -139,7 +149,7 @@
 			var arrPageScroll = ___getPageScroll();
 			// Calculate top and left offset for the jquery-lightbox div object and show it
 			$('#jquery-lightbox').css({
-				top:	50 + arrPageScroll[1] + (arrPageSizes[3] / 10),
+				top:	settings.top + arrPageScroll[1] + (arrPageSizes[3] / 10),
 				left:	arrPageScroll[0]
 			}).show();
 			// Assigning click events in elements to close overlay
@@ -386,6 +396,8 @@
 			$('#jquery-overlay').fadeOut(function() { $('#jquery-overlay').remove(); });
 			// Show some elements to avoid conflict with overlay in IE. These elements appear above the overlay.
 			$('embed, object, select').css({ 'visibility' : 'visible' });
+			// Call the function specified in the onClose configuration setting
+			settings.onClose.call();
 		}
 		/**
 		 / THIRD FUNCTION

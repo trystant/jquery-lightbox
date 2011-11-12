@@ -1,12 +1,11 @@
 This is a port of the JQuery lightbox plugin, developed by Leandro Vieira Pinho. I have made a couple of modifications to it so far, including:
 
-1. Changing the top position of the lightbox window
+1. Make the top property a configurable option.
+2. Add callback hooks for opening and closing the lightbox; now you can put arbitrary functions in the setup options and have them run successfully.
 
 TODOS: 
 
-1. Make the top property a configurable option.
-2. Add callback hooks for setup and teardown.
-3. Put together testing procedure.
-4. Figure out minimizing procedure.
+1. Put together testing procedure.
+2. Figure out minimizing process.
 
 2011 Mark Nyon
