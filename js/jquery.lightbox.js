@@ -392,12 +392,12 @@
 		 *
 		 */
 		function _finish() {
+			settings.onClose.call();
 			$('#jquery-lightbox').remove();
 			$('#jquery-overlay').fadeOut(function() { $('#jquery-overlay').remove(); });
 			// Show some elements to avoid conflict with overlay in IE. These elements appear above the overlay.
 			$('embed, object, select').css({ 'visibility' : 'visible' });
 			// Call the function specified in the onClose configuration setting
-			settings.onClose.call();
 		}
 		/**
 		 / THIRD FUNCTION
