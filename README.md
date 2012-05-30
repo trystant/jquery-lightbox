@@ -1,4 +1,4 @@
-This is a port of the JQuery lightbox plugin, developed by [Leandro Vieira Pinho] (http://leandrovieira.com/projects/jquery/lightbox) . I have made a couple of modifications to it so far, including:
+This is a fork of the JQuery lightbox plugin, developed by [Leandro Vieira Pinho] (http://leandrovieira.com/projects/jquery/lightbox) . I have made a couple of modifications to it so far, including:
 
 1. Make the top property a configurable option.
 2. Add callback hooks for opening and closing the lightbox; now you can put arbitrary functions in the setup options and have them run successfully.
